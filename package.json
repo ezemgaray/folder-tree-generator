@@ -1,0 +1,41 @@
+{
+	"name": "tree-folder",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"files": [
+		"dist"
+	],
+	"bin": {
+		"treefolder": "dist/index.js"
+	},
+	"scripts": {
+		"build": "rimraf dist && tsc",
+		"prepublish": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ezemgaray/tree-folder.git"
+	},
+	"keywords": [
+		"folder",
+		"structure",
+		"tree",
+		"directory",
+		"dir",
+		"directory"
+	],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ezemgaray/tree-folder/issues"
+	},
+	"homepage": "https://github.com/ezemgaray/tree-folder#readme",
+	"devDependencies": {
+		"rimraf": "^3.0.2",
+		"typescript": "^4.9.3"
+	},
+	"dependencies": {
+		"commander": "^9.4.1"
+	}
+}
