@@ -15,7 +15,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/ezemgaray/tree-folder.git"
+		"url": "git+https://github.com/ezemgaray/folder-tree-generator.git"
 	},
 	"keywords": [
 		"folder",
@@ -28,9 +28,9 @@
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/ezemgaray/tree-folder/issues"
+		"url": "https://github.com/ezemgaray/folder-tree-generator/issues"
 	},
-	"homepage": "https://github.com/ezemgaray/tree-folder#readme",
+	"homepage": "https://github.com/ezemgaray/folder-tree-generator#readme",
 	"devDependencies": {
 		"rimraf": "^3.0.2",
 		"typescript": "^4.9.3"
