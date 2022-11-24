@@ -1,5 +1,5 @@
 {
-	"name": "tree-folder",
+	"name": "folder-tree-generator",
 	"version": "1.0.0",
 	"description": "",
 	"main": "dist/index.js",
@@ -7,7 +7,7 @@
 		"dist"
 	],
 	"bin": {
-		"treefolder": "dist/index.js"
+		"ftg": "dist/index.js"
 	},
 	"scripts": {
 		"build": "rimraf dist && tsc",
