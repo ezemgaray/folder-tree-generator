@@ -11,6 +11,7 @@
 	},
 	"scripts": {
 		"build": "rimraf dist && tsc",
+		"dev": "npm run build && node dist ftg",
 		"prepublish": "npm run build"
 	},
 	"repository": {
@@ -22,8 +23,7 @@
 		"structure",
 		"tree",
 		"directory",
-		"dir",
-		"directory"
+		"dir"
 	],
 	"author": "",
 	"license": "ISC",
