@@ -38,7 +38,6 @@ export const drawTreeFromJsonDir = (
 				: null
 
 		if (name !== null) {
-			console.log(`${prefix}${delimiter}${name}`)
 			output.push(`${prefix}${delimiter}${name}`)
 		}
 
