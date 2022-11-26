@@ -7,7 +7,7 @@
 		"dist"
 	],
 	"bin": {
-		"ftg": "dist/index.js"
+		"ftg": "dist/terminal/index.js"
 	},
 	"scripts": {
 		"build": "rimraf dist && tsc",
