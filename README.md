@@ -58,7 +58,7 @@ Usage: dist [options]
 
 Options:
   -V, --version          output the version number
-  -d, --directory [dir]  Directory path. (default: "/Users/ezequielgaray/Projects/GITHUB/tree-folder")
+  -d, --directory [dir]  Directory path. (default: "folder path")
   -f, --folder-only      Draw folders only.
   -s, --sort             Sort alphabetically and put folders first and then files.
   -h, --help             display help for command
