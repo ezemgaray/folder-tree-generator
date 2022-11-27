@@ -18,6 +18,7 @@ program
 		'-c, --comments',
 		'Show "Empty folder" comment (--folder-only must be false)'
 	)
+	.option('--emojis', 'Show emojis - folder: 📁 - File: 📄')
 	.parse(process.argv)
 
 const options = program.opts()

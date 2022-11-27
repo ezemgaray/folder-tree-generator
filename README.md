@@ -58,6 +58,7 @@ Options:
   -f, --folder-only      Draw folders only.
   -s, --sort             Sort alphabetically and put folders first and then files.
   -c, --comments         Show "Empty folder" comment (--folder-only must be false)
+  --emojis               Show emojis - folder: 📁 - File: 📄
   -h, --help             display help for command
 ```
 
@@ -80,13 +81,38 @@ import { ftg, FtgOptions } from 'folder-tree-generator'
 const path = process.cwd()
 
 // ftg options
-const options: FtgOptions = { sort: true }
+const options: FtgOptions = { sort: true, emojis: true }
 
-console.log('Tree with options:', options)
-console.log('👇')
+console.log('👇👇 Tree with options:', options)
+
 
 const tree = ftg(path, options)
 console.log(tree)
+
+// OUTPUT
+
+👇👇 Tree with options: { sort: true, emojis: true }
+├── 📁 folder-tree-generator
+│   ├── 📁 src
+│   │   ├── 📁 example
+│   │   │   └── 📄 index.ts
+│   │   ├── 📁 terminal
+│   │   │   └── 📄 index.ts
+│   │   ├── 📁 utils
+│   │   │   ├── 📄 drawTreeFromJsonDir.ts
+│   │   │   ├── 📄 ftg.ts
+│   │   │   ├── 📄 index.ts
+│   │   │   ├── 📄 parseDirToJson.ts
+│   │   │   └── 📄 sortFolder.ts
+│   │   └── 📄 index.ts
+│   ├── 📄 .editorconfig
+│   ├── 📄 .gitignore
+│   ├── 📄 .prettierrc.json
+│   ├── 📄 README.md
+│   ├── 📄 package-lock.json
+│   ├── 📄 package.json
+│   └── 📄 tsconfig.json
+
 ```
 
 ### Options
@@ -97,6 +123,7 @@ console.log(tree)
 | -f, --folders-only  | folderOnly          | boolean | false                                                          | generate tree only with folders (ignore files)            |
 | -s, --sort          | sort                | boolean | false                                                          | Sort alphabetically and put folders first and then files. |
 | -c, --comments      | comments            | boolean | false                                                          | Show "Empty folder" comment (--folder-only must be false) |
+| --emojis            | emojis              | boolean | false                                                          | Show emojis - folder: 📁 - File: 📄                       |
 
 ## Ignore files/folders
 
@@ -154,4 +181,5 @@ If files and folders are included and the `comments` option is also added, empty
 - Add comment "# Empty folder" (if you are including files but the folder is empty literally) ✅
 - Interactive terminal
 - Show available version in terminal ✅
+- Show emojis ✅
 - CHANGELOG.md

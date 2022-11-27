@@ -6,6 +6,7 @@ export interface FtgOptions {
 	ignoreArray?: string[]
 	sort?: boolean
 	comments?: boolean
+	emojis?: boolean
 }
 
 /**

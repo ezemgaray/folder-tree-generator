@@ -46,6 +46,8 @@ export const drawTreeFromJsonDir = (
 				? ' # Empty folder'
 				: ''
 
+		const emojis = options.emojis ? (currentIsFile ? '📄 ' : '📁 ') : ''
+
 		const name = currentIsFile
 			? current
 			: !Array.isArray(dirData)
@@ -58,7 +60,9 @@ export const drawTreeFromJsonDir = (
 			(isLastEmptyFolder || isLastFile) && level ? last : contain
 
 		if (name !== null) {
-			accumulator.push(`${levelPrefix}${delimiter}${name}${emptyFolderComment}`)
+			accumulator.push(
+				`${levelPrefix}${delimiter}${emojis}${name}${emptyFolderComment}`
+			)
 		}
 
 		if (typeof current === 'object') {
