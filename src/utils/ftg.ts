@@ -5,6 +5,7 @@ export interface FtgOptions {
 	ignore?: string
 	ignoreArray?: string[]
 	sort?: boolean
+	comments?: boolean
 }
 
 /**
@@ -12,18 +13,15 @@ export interface FtgOptions {
  * @param path
  * @param options
  */
-export const ftg = (path: string, options?: FtgOptions): string | undefined => {
-	const defaultOptions = {
-		folderOnly: false,
-		sort: false,
-	}
-	const mergedOptions = { ...defaultOptions, ...options }
-
+export const ftg = (
+	path: string,
+	options: FtgOptions = {}
+): string | undefined => {
 	try {
-		const jsonDir = parseDirToJson(path, mergedOptions)
+		const jsonDir = parseDirToJson(path, options)
 
 		if (typeof jsonDir === 'object') {
-			const tree = drawTreeFromJsonDir(jsonDir, mergedOptions)
+			const tree = drawTreeFromJsonDir(jsonDir, options)
 			return tree
 		}
 
