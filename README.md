@@ -1,6 +1,8 @@
-# FTG - Folder tree generator
+# Folder Tree Generator - FTG
 
-Generate a folder tree as a string from a path using terminal or by importing in your ts/js file.
+[![Npm package version](https://badgen.net/npm/v/folder-tree-generator)](https://npmjs.com/package/folder-tree-generator)
+
+Generate a folder tree as a string from the path using the terminal or by importing it into your code.
 
 ```text
 ├── folder-tree-generator
@@ -27,11 +29,23 @@ Generate a folder tree as a string from a path using terminal or by importing in
 
 ### Terminal.
 
-`npm i folder-tree-generator -g`
+Install globally
+
+```sh
+npm i folder-tree-generator -g
+```
+
+Using NPX
+
+```sh
+npx folder-tree-generator
+```
 
 ### TS/JS
 
-`npm i folder-tree-generator`
+```sh
+npm i folder-tree-generator
+```
 
 ## Usage
 
@@ -80,10 +94,11 @@ console.log(tree)
 
 ### Options
 
-| Terminal           | Code    | Type    | Default                                        | Description                                               |
-| ------------------ | ------- | ------- | ---------------------------------------------- | --------------------------------------------------------- |
-| sort               | sort    | boolean | false                                          | Sort alphabetically and put folders first and then files. |
-| -f, --folders-only | boolean | false   | generate tree only with folders (ignore files) |
+| Terminal            | Code                | Type    | Default                                                        | Description                                               |
+| ------------------- | ------------------- | ------- | -------------------------------------------------------------- | --------------------------------------------------------- |
+| -d -directory [dir] | Path is a parameter | string  | **Terminal**: currentFolder - **Code**: path is required param | Folder Path                                               |
+| -f, --folders-only  | folderOnly          | boolean | false                                                          | generate tree only with folders (ignore files)            |
+| sort                | sort                | boolean | false                                                          | Sort alphabetically and put folders first and then files. |
 
 ## Ignore files/folders
 
@@ -110,3 +125,5 @@ By default ftg ignore the following files and folders
 - Add "..." if folderOnly = true
 - Add comment "# Empty folder" (if the folder is empty literally)
 - Interactive terminal
+- Show available version in terminal ✅
+- CHANGELOG.md
