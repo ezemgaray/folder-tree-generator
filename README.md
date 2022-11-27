@@ -4,19 +4,22 @@ Generate a folder tree as a string from a path using terminal or by importing in
 
 ```text
 ├── folder-tree-generator
-│   ├── src
-│   │   ├── utils
-│   │   │   ├── drawTreeFromJsonDir.ts
-│   │   │   ├── index.ts
-│   │   │   ├── parseDirToJson.ts
-│   │   │   └── sortFolder.ts
-│   │   └── index.ts
 │   ├── .editorconfig
 │   ├── .gitignore
 │   ├── .prettierrc.json
 │   ├── README.md
 │   ├── package-lock.json
 │   ├── package.json
+│   ├── src
+│   │   ├── index.ts
+│   │   ├── terminal
+│   │   │   └── index.ts
+│   │   ├── utils
+│   │   │   ├── drawTreeFromJsonDir.ts
+│   │   │   ├── ftg.ts
+│   │   │   ├── index.ts
+│   │   │   ├── parseDirToJson.ts
+│   │   │   └── sortFolder.ts
 │   └── tsconfig.json
 ```
 
@@ -51,10 +54,13 @@ Help options
 ```sh
 $ ftg --help
 
+Usage: dist [options]
+
 Options:
   -V, --version          output the version number
-  -d, --directory [dir]  Directory path. (default: "[current path]")
+  -d, --directory [dir]  Directory path. (default: "/Users/ezequielgaray/Projects/GITHUB/tree-folder")
   -f, --folder-only      Draw folders only.
+  -s, --sort             Sort alphabetically and put folders first and then files.
   -h, --help             display help for command
 ```
 
@@ -72,6 +78,15 @@ console.log(tree)
 
 ## Defaults
 
+### Options
+
+| Terminal           | Code    | Type    | Default                                        | Description                                               |
+| ------------------ | ------- | ------- | ---------------------------------------------- | --------------------------------------------------------- |
+| sort               | sort    | boolean | false                                          | Sort alphabetically and put folders first and then files. |
+| -f, --folders-only | boolean | false   | generate tree only with folders (ignore files) |
+
+## Ignore files/folders
+
 By default ftg ignore the following files and folders
 
 - .vscode
@@ -82,12 +97,16 @@ By default ftg ignore the following files and folders
 
 ## TODO
 
+- Unit testing jest
 - Add command flags
-  - --folder-only
+  - --sort ✅
+  - --folder-only ✅
   - --ignore (regex)
   - --export
-- Interactive terminal
 - add ftg() options
-  - folderOnly
-  - ignoreRegex
-  - ignoreArray
+  - sort ✅
+  - folderOnly ✅
+  - ignore (regex)
+- Add "..." if folderOnly = true
+- Add comment "# Empty folder" (if the folder is empty literally)
+- Interactive terminal
