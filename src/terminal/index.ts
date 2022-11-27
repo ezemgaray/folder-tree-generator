@@ -18,9 +18,14 @@ program
 		'-s, --sort',
 		'Sort alphabetically and put folders first and then files.'
 	)
+	.option(
+		'-c, --comments',
+		'Show "Empty folder" comment (--folder-only must be false)'
+	)
 	.parse(process.argv)
 
 const options = program.opts()
+console.log(options)
 
 try {
 	fs.lstatSync(options.directory)
