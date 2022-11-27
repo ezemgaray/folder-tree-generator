@@ -5,7 +5,7 @@ const example = (() => {
 	const path = process.cwd()
 
 	// ftg options
-	const options: FtgOptions = { sort: true }
+	const options: FtgOptions = { sort: true, comments: true }
 
 	console.log('Tree with options:', options)
 	console.log('👇')
