@@ -12,13 +12,27 @@ export interface FtgOptions {
  * @param path
  * @param options
  */
-export const ftg = (path: string, options?: FtgOptions) => {
-	const jsonDir = parseDirToJson(path, options)
-
-	if (typeof jsonDir === 'object') {
-		const tree = drawTreeFromJsonDir(jsonDir)
-		return tree
+export const ftg = (path: string, options?: FtgOptions): string | undefined => {
+	const defaultOptions = {
+		folderOnly: false,
+		sort: false,
 	}
+	const mergedOptions = { ...defaultOptions, ...options }
 
-	return jsonDir
+	try {
+		const jsonDir = parseDirToJson(path, mergedOptions)
+
+		if (typeof jsonDir === 'object') {
+			const tree = drawTreeFromJsonDir(jsonDir, mergedOptions)
+			return tree
+		}
+
+		return jsonDir
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(error.message)
+		}
+
+		return
+	}
 }
