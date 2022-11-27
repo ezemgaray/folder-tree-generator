@@ -28,7 +28,7 @@ try {
 	const jsonDir = parseDirToJson(options.directory, options)
 
 	if (typeof jsonDir === 'object') {
-		const tree = drawTreeFromJsonDir(jsonDir)
+		const tree = drawTreeFromJsonDir(jsonDir, options)
 		console.log('--- TREE FROM TERMINAL ---')
 		console.log(tree)
 		console.log('--------------------------')
