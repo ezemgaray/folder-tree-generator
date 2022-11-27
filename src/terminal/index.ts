@@ -8,7 +8,10 @@ program
 	.version(myPackage.version)
 	.option('-d, --directory [dir]', 'Directory path.', process.cwd())
 	.option('-f, --folder-only', 'Draw folders only.')
-	.option('-s, --sort', 'Sort.')
+	.option(
+		'-s, --sort',
+		'Sort alphabetically and put folders first and then files.'
+	)
 	.parse(process.argv)
 
 const options = program.opts()
