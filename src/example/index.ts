@@ -10,6 +10,6 @@ const example = (() => {
 	console.log('Tree with options:', options)
 	console.log('👇')
 
-	const tree = ftg(process.cwd(), options)
+	const tree = ftg(path, options)
 	console.log(tree)
 })()
