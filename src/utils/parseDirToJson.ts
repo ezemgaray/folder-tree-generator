@@ -43,8 +43,8 @@ export const parseDirToJson = (
 						parseDirToJson(`${dirPath}/${curr}`, mergedOptions),
 					].filter(Boolean)
 				} else {
-					if (!mergedOptions.folderOnly) {
-						// If curr is a file and files are included
+					if (!mergedOptions.folderOnly && !defaultIgnore.includes(curr)) {
+						// If curr is a file and is not in "defaultIgnore"
 						acc[baseName] = acc[baseName] = Array<any>(
 							...(acc[baseName] || []),
 							curr

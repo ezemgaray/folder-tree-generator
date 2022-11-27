@@ -54,7 +54,7 @@ Usage: dist [options]
 
 Options:
   -V, --version          output the version number
-  -d, --directory [dir]  Directory path. (default: "/Users/ezequielgaray/Projects/GITHUB/folder-tree-generator")
+  -d, --directory [dir]  Directory path. (default: "[current path]")
   -f, --folder-only      Draw folders only.
   -s, --sort             Sort alphabetically and put folders first and then files.
   -c, --comments         Show "Empty folder" comment (--folder-only must be false)
