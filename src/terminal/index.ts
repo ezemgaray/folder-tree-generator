@@ -1,11 +1,17 @@
 #!/usr/bin/env node
+
 import { program } from 'commander'
 import * as fs from 'fs'
+import updateNotifier from 'update-notifier'
 import { drawTreeFromJsonDir, parseDirToJson } from '../utils'
-const myPackage = require('../../package.json')
+
+// Read package.json
+const packageFilename = process.cwd() + '/package.json'
+const packageFile = fs.readFileSync(packageFilename, 'utf8')
+const pkg = JSON.parse(packageFile)
 
 program
-	.version(myPackage.version)
+	.version(pkg.version)
 	.option('-d, --directory [dir]', 'Directory path.', process.cwd())
 	.option('-f, --folder-only', 'Draw folders only.')
 	.option(
@@ -27,6 +33,12 @@ try {
 		console.log(tree)
 		console.log('--------------------------')
 	}
+	// Show available update
+	updateNotifier({
+		pkg: { name: pkg.name, version: pkg.version },
+		shouldNotifyInNpmScript: true,
+		updateCheckInterval: 0,
+	}).notify({ isGlobal: true })
 } catch (error) {
 	if (error instanceof Error) {
 		console.error(error.message)
