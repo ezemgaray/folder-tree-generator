@@ -4,11 +4,7 @@ import { program } from 'commander'
 import * as fs from 'fs'
 import updateNotifier from 'update-notifier'
 import { drawTreeFromJsonDir, parseDirToJson } from '../utils'
-
-// Read package.json
-const packageFilename = process.cwd() + '/package.json'
-const packageFile = fs.readFileSync(packageFilename, 'utf8')
-const pkg = JSON.parse(packageFile)
+const pkg = require('../../package.json')
 
 program
 	.version(pkg.version)
