@@ -12,6 +12,7 @@
 	"scripts": {
 		"build": "rimraf dist && tsc",
 		"dev": "npm run build && node dist ftg",
+		"example": "npm run build && node dist/example/index.js",
 		"prepublish": "npm run build"
 	},
 	"repository": {
