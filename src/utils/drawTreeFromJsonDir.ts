@@ -1,3 +1,4 @@
+import { FtgOptions } from './ftg'
 import { DirData } from './parseDirToJson'
 
 const treeSymbols = {
@@ -7,49 +8,64 @@ const treeSymbols = {
 }
 
 /**
- *
+ *	Draw Tree from json dir
  * @param dirData
- * @param output
+ * @param options
+ * @param accumulator
  * @param level
+ * @param parent
  * @returns
  */
 export const drawTreeFromJsonDir = (
 	dirData: DirData,
-	output: string[] = [],
-	level = 0
-) => {
+	options: FtgOptions,
+	accumulator: string[] = [],
+	level = 0,
+	parent?: DirData
+): string => {
 	const { line, contain, last } = treeSymbols
-	const lastItem = Array.isArray(dirData) && [...dirData].pop()
 
 	for (const key in dirData) {
 		const typedKey = key as keyof DirData
-		let prefix = Array.from({ length: level }, () => line).join('')
+
+		// Current
+		const current = dirData[typedKey]
+		const currentIsArray = Array.isArray(current)
+		const currentIsFile = typeof current === 'string'
+		// Level
+		const isNextLevel = currentIsArray
+		// File
+		const lastItem = Array.isArray(dirData) && [...dirData].pop()
+		const isLastFile = !currentIsArray && lastItem === current
+		// Folder
+		const isEmptyFolder = currentIsArray && !current.length
+		const lastFolderInParent = Array.isArray(parent) && [...parent].pop()
+		const isLastEmptyFolder = lastFolderInParent === dirData && isEmptyFolder
+
+		const name = currentIsFile
+			? current
+			: !Array.isArray(dirData)
+			? typedKey
+			: null
+
+		let levelPrefix = Array.from({ length: level }, () => line).join('')
 
 		const delimiter =
-			typeof dirData[typedKey] == 'string' && lastItem === dirData[typedKey]
-				? last
-				: contain
-
-		const name =
-			typeof dirData[typedKey] === 'string'
-				? dirData[typedKey]
-				: !Array.isArray(dirData)
-				? typedKey
-				: null
+			(isLastEmptyFolder || isLastFile) && level ? last : contain
 
 		if (name !== null) {
-			output.push(`${prefix}${delimiter}${name}`)
+			accumulator.push(`${levelPrefix}${delimiter}${name}`)
 		}
 
-		if (typeof dirData[typedKey] === 'object') {
-			const isNextLevel =
-				!Array.isArray(dirData) && Array.isArray(dirData[typedKey])
+		if (typeof current === 'object') {
 			drawTreeFromJsonDir(
-				dirData[typedKey],
-				output,
-				isNextLevel ? level + 1 : level
+				current,
+				options,
+				accumulator,
+				isNextLevel ? level + 1 : level,
+				dirData
 			)
 		}
 	}
-	return output.join('\n')
+	return accumulator.join('\n')
 }
