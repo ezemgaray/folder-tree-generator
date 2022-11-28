@@ -1,8 +1,23 @@
+<div align="center">
+
 # Folder Tree Generator - FTG
 
 Generate a folder tree structure using command line or code.
 
-[![Npm package version](https://badgen.net/npm/v/folder-tree-generator)](https://npmjs.com/package/folder-tree-generator)
+[![NPM version](https://badgen.net/npm/v/folder-tree-generator)](https://npmjs.com/package/folder-tree-generator)
+[![NPM downloads](https://badgen.net/npm/dw/folder-tree-generator)](https://npmjs.com/package/folder-tree-generator)
+[![Open issues](https://badgen.net//github/open-issues/ezemgaray/folder-tree-generator)](https://github.com/ezemgaray/folder-tree-generator/issues)
+[![Open prs](https://badgen.net//github/open-prs/ezemgaray/folder-tree-generator)](https://github.com/ezemgaray/folder-tree-generator/pulls)
+
+</div>
+
+<div style="text-align: center;">
+
+<a href="https://www.buymeacoffee.com/ezemgaray">
+<img src="https://cdn.buymeacoffee.com/buttons/default-black.png" width="170" />
+</a>
+
+</div>
 
 ```text
 ├── folder-tree-generator
