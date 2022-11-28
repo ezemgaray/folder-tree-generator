@@ -11,7 +11,7 @@ Generate a folder tree structure using command line or code.
 
 </div>
 
-<div style="text-align: center;">
+<div align="center">
 
 <a href="https://www.buymeacoffee.com/ezemgaray">
 <img src="https://cdn.buymeacoffee.com/buttons/default-black.png" width="170" />
