@@ -28,7 +28,14 @@ export const parseDirToJson = (
 
 	const dirArrayString = fs.readdirSync(dirPath)
 
-	const defaultIgnore = ['.vscode', '.DS_Store', '.git', 'node_modules', 'dist']
+	const defaultIgnore = [
+		'.vscode',
+		'.DS_Store',
+		'.git',
+		'node_modules',
+		'dist',
+		'coverage',
+	]
 
 	if (defaultIgnore.includes(baseName)) {
 		return
