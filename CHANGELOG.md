@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/ezemgaray/folder-tree-generator/compare/v1.1.0...v1.1.1) (2022-11-29)
+
+
+### Documentation
+
+* correct options table and TODO ([9f1a251](https://github.com/ezemgaray/folder-tree-generator/commit/9f1a25163e189c6f88ee0cc59309c77ffaa022cb))
+
 ## [1.1.0](https://github.com/ezemgaray/folder-tree-generator/compare/v1.0.13...v1.1.0) (2022-11-29)
 
 
