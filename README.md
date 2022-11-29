@@ -6,8 +6,8 @@ Generate a folder tree structure using command line or code.
 
 [![NPM version](https://badgen.net/npm/v/folder-tree-generator)](https://npmjs.com/package/folder-tree-generator)
 [![NPM downloads](https://badgen.net/npm/dw/folder-tree-generator)](https://npmjs.com/package/folder-tree-generator)
-[![Open issues](https://badgen.net//github/open-issues/ezemgaray/folder-tree-generator)](https://github.com/ezemgaray/folder-tree-generator/issues)
-[![Open prs](https://badgen.net//github/open-prs/ezemgaray/folder-tree-generator)](https://github.com/ezemgaray/folder-tree-generator/pulls)
+[![Open issues](https://badgen.net/github/open-issues/ezemgaray/folder-tree-generator)](https://github.com/ezemgaray/folder-tree-generator/issues)
+[![Open prs](https://badgen.net/github/open-prs/ezemgaray/folder-tree-generator)](https://github.com/ezemgaray/folder-tree-generator/pulls)
 
 </div>
 
