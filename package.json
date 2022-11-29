@@ -1,7 +1,7 @@
 {
 	"name": "folder-tree-generator",
 	"version": "1.0.13",
-	"description": "",
+	"description": "Generate a folder tree structure using command line or code.",
 	"main": "dist/index.js",
 	"files": [
 		"dist"
@@ -10,9 +10,9 @@
 		"ftg": "dist/terminal/index.js"
 	},
 	"scripts": {
-		"build": "rimraf dist && tsc",
 		"dev": "npm run build && node dist ftg",
 		"example": "npm run build && node dist/example/index.js",
+		"build": "rimraf dist && tsc",
 		"prepublish": "npm run build"
 	},
 	"repository": {
@@ -26,7 +26,10 @@
 		"directory",
 		"dir"
 	],
-	"author": "",
+	"author": {
+		"name": "Ezequiel Garay",
+		"url": "https://github.com/ezemgaray"
+	},
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/ezemgaray/folder-tree-generator/issues"
