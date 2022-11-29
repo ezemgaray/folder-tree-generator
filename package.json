@@ -13,7 +13,8 @@
 		"dev": "npm run build && node dist ftg",
 		"example": "npm run build && node dist/example/index.js",
 		"build": "rimraf dist && tsc",
-		"prepublish": "npm run build"
+		"prepublish": "npm run build",
+		"prepare": "husky install"
 	},
 	"repository": {
 		"type": "git",
@@ -36,12 +37,35 @@
 	},
 	"homepage": "https://github.com/ezemgaray/folder-tree-generator#readme",
 	"devDependencies": {
+		"@commitlint/cli": "^17.3.0",
+		"@commitlint/config-conventional": "^17.3.0",
 		"@types/update-notifier": "^5.1.0",
+		"husky": "^8.0.2",
 		"rimraf": "^3.0.2",
 		"typescript": "^4.9.3"
 	},
 	"dependencies": {
 		"commander": "^9.4.1",
 		"update-notifier": "^5.1.0"
+	},
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		],
+		"rules": {
+			"subject-case": [
+				2,
+				"never",
+				[
+					"start-case",
+					"pascal-case"
+				]
+			]
+		}
 	}
 }
