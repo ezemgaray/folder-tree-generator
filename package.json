@@ -14,7 +14,9 @@
 		"example": "npm run build && node dist/example/index.js",
 		"build": "rimraf dist && tsc",
 		"prepublish": "npm run build",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"release": "standard-version",
+		"postrelease": "git push --follow-tags && npm publish"
 	},
 	"repository": {
 		"type": "git",
@@ -42,6 +44,7 @@
 		"@types/update-notifier": "^5.1.0",
 		"husky": "^8.0.2",
 		"rimraf": "^3.0.2",
+		"standard-version": "^9.5.0",
 		"typescript": "^4.9.3"
 	},
 	"dependencies": {
