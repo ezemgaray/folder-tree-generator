@@ -73,6 +73,7 @@ Options:
   -f, --folder-only      Draw folders only.
   -s, --sort             Sort alphabetically and put folders first and then files.
   -c, --comments         Show "Empty folder" comment (--folder-only must be false)
+  -e, --export [path]    Set the folder path to export "ftg_tree_[date].txt" or just -e or --export for the default export to the current path
   --emojis               Show emojis - folder: 📁 - File: 📄
   -h, --help             display help for command
 ```
@@ -133,12 +134,14 @@ console.log(tree)
 ### Options
 
 | Terminal            | Code                | Type    | Default                                                        | Description                                               |
-| ------------------- | ------------------- | ------- | -------------------------------------------------------------- | --------------------------------------------------------- |
+| ------------------- | ------------------- | ------- | -------------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | -d -directory [dir] | Path is a parameter | string  | **Terminal**: currentFolder - **Code**: path is required param | Folder Path                                               |
 | -f, --folders-only  | folderOnly          | boolean | false                                                          | generate tree only with folders (ignore files)            |
 | -s, --sort          | sort                | boolean | false                                                          | Sort alphabetically and put folders first and then files. |
 | -c, --comments      | comments            | boolean | false                                                          | Show "Empty folder" comment (--folder-only must be false) |
-| --emojis            | emojis              | boolean | false                                                          | Show emojis - folder: 📁 - File: 📄                       |
+| -e, --export [path] | [Not Available]     | boolean | string                                                         | false                                                     | Set the folder path to export "ftg*tree*[date].txt" or just -e or --export for the default export to the current path |
+
+| --emojis | emojis | boolean | false | Show emojis - folder: 📁 - File: 📄 |
 
 ## Ignore files/folders
 
@@ -188,7 +191,7 @@ If files and folders are included and the `comments` option is also added, empty
   - --sort ✅
   - --folder-only ✅
   - --ignore (regex)
-  - --export
+  - --export ✅
 - add ftg() options
   - sort ✅
   - folderOnly ✅
