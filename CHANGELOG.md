@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/ezemgaray/folder-tree-generator/compare/v1.1.1...v1.1.2) (2022-12-04)
+
+
+### Chore
+
+* add .vscode into .gitignore ([5a003fa](https://github.com/ezemgaray/folder-tree-generator/commit/5a003fa153bc94630f8ab67cde702ca30b6c0520))
+* add chalk ([6946eb8](https://github.com/ezemgaray/folder-tree-generator/commit/6946eb87275044275b0305956abb7018d73714bb))
+* Add license ([b59675d](https://github.com/ezemgaray/folder-tree-generator/commit/b59675d9d45b44ecd0d7f6da00c693342e2c2821))
+* add release scripts ([10257d6](https://github.com/ezemgaray/folder-tree-generator/commit/10257d62a3ad2d348c93bfd824e38993cf3566ba))
+* fix readme misspelling ([2516a2a](https://github.com/ezemgaray/folder-tree-generator/commit/2516a2a4972b3e4733c0a3fdb65a522f306df51c))
+* move husky out of package.json ([b073188](https://github.com/ezemgaray/folder-tree-generator/commit/b073188ccaf065276bbfbe36dbbf4271326b811f))
+* update package keywords ([6816eda](https://github.com/ezemgaray/folder-tree-generator/commit/6816eda17669397320b3f45709b757c266f3bd26))
+
+
+### Refactors
+
+* Add flag: --ignore ([e8c2278](https://github.com/ezemgaray/folder-tree-generator/commit/e8c22783232e11fa712485522887cfe89f731d10))
+
 ### [1.1.1](https://github.com/ezemgaray/folder-tree-generator/compare/v1.1.0...v1.1.1) (2022-11-29)
 
 
