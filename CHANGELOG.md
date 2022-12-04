@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/ezemgaray/folder-tree-generator/compare/v1.1.3...v1.1.4) (2022-12-04)
+
+
+### Chore
+
+* package types path ([daddf9d](https://github.com/ezemgaray/folder-tree-generator/commit/daddf9dad0bf2f2b169c68866fc639ff041e5210))
+
 ### [1.1.3](https://github.com/ezemgaray/folder-tree-generator/compare/v1.1.2...v1.1.3) (2022-12-04)
 
 
