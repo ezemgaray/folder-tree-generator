@@ -19,7 +19,7 @@
 	},
 	"scripts": {
 		"dev": "npm run build && node dist ftg",
-		"example": "npm run build && node dist/example/index.js",
+		"example": "npx ts-node src/example/index.ts",
 		"build": "rimraf dist  && npx microbundle",
 		"prepublish": "npm run build",
 		"prepare": "husky install",
