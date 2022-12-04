@@ -2,7 +2,15 @@
 	"name": "folder-tree-generator",
 	"version": "1.1.2",
 	"description": "Generate a folder tree structure using command line or code.",
+	"source": "src/index.ts",
 	"main": "dist/index.js",
+	"umd:main": "dist/index.umd.js",
+	"module": "dist/index.mjs",
+	"exports": {
+		"require": "./dist/index.js",
+		"default": "./dist/index.modern.mjs"
+	},
+	"types": "dist/index.d.ts",
 	"files": [
 		"dist"
 	],
@@ -12,8 +20,8 @@
 	"scripts": {
 		"dev": "npm run build && node dist ftg",
 		"example": "npm run build && node dist/example/index.js",
-		"build": "rimraf dist && tsc",
-		"prepublish": "npm run build",
+		"build": "rimraf dist  && npx microbundle",
+		"prepublish": "rimraf dist && npx microbundle",
 		"prepare": "husky install",
 		"release:patch": "npm run release -- --release-as patch",
 		"release:minor": "npm run release -- --release-as minor",
