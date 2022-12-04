@@ -4,11 +4,11 @@ import chalk from 'chalk'
 import { program } from 'commander'
 import * as fs from 'fs'
 import updateNotifier from 'update-notifier'
+import { name, version } from '../../package.json'
 import { drawTreeFromJsonDir, parseDirToJson } from '../utils'
-const pkg = require('../../package.json')
 
 program
-	.version(pkg.version)
+	.version(version)
 	.option('-d, --directory [dir]', 'Directory path', process.cwd())
 	.option('-f, --folder-only', 'Draw folders only')
 	.option(
@@ -72,7 +72,7 @@ try {
 	}
 	// Show available update
 	updateNotifier({
-		pkg: { name: pkg.name, version: pkg.version },
+		pkg: { name, version },
 		shouldNotifyInNpmScript: true,
 		updateCheckInterval: 0,
 	}).notify({ isGlobal: true })
