@@ -29,7 +29,10 @@
 		"structure",
 		"tree",
 		"directory",
-		"dir"
+		"dir",
+		"docs",
+		"documentation",
+		"text"
 	],
 	"author": {
 		"name": "Ezequiel Garay",
