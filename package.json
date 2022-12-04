@@ -2,7 +2,7 @@
 	"name": "folder-tree-generator",
 	"version": "1.1.5",
 	"description": "Generate a folder tree structure using command line or code.",
-	"source": "src/index.ts",
+	"source": "index.ts",
 	"main": "dist/index.js",
 	"umd:main": "dist/index.umd.js",
 	"module": "dist/index.mjs",
@@ -10,6 +10,7 @@
 		"require": "./dist/index.js",
 		"default": "./dist/index.modern.mjs"
 	},
+	"types": "dist/index.d.ts",
 	"files": [
 		"dist"
 	],
