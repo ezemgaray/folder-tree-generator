@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import chalk from 'chalk'
 import { program } from 'commander'
 import * as fs from 'fs'
 import updateNotifier from 'update-notifier'
@@ -34,23 +35,26 @@ try {
 
 	if (typeof jsonDir === 'object') {
 		const tree = drawTreeFromJsonDir(jsonDir, options)
-		console.log('--- TREE FROM TERMINAL ---')
+		console.log(chalk.green('--- TREE FROM TERMINAL ---\n'))
 		console.log(tree)
-		console.log('--------------------------')
+		console.log(chalk.green('\n--------------------------'))
 
 		if (options.export) {
-			console.log('options.export', options.export)
+			options.export =
+				typeof options.export !== 'string' ? options.directory : options.export
 
 			fs.writeFile(
-				`${
-					options.export === true ? options.directory : options.export
-				}/ftg_tree_${new Date().toISOString()}.txt`,
+				`${options.export}/ftg_tree_${new Date().toISOString()}.txt`,
 				tree,
 				error => {
 					if (error) {
 						throw Error
 					}
-					console.log(`\n\n FTG Tree has been exported into ${options.export}`)
+					console.log(
+						`\n ${chalk.green(
+							'FTG Tree has been exported into'
+						)} ${chalk.yellow(options.export)}`
+					)
 				}
 			)
 		}
@@ -63,6 +67,6 @@ try {
 	}).notify({ isGlobal: true })
 } catch (error) {
 	if (error instanceof Error) {
-		console.error(error.message)
+		console.log(chalk.bgRed.bold(error.message))
 	}
 }
