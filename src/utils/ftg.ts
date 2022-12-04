@@ -1,9 +1,9 @@
+import chalk from 'chalk'
 import { drawTreeFromJsonDir, parseDirToJson } from '.'
 
 export interface FtgOptions {
 	folderOnly?: boolean
-	ignore?: string
-	ignoreArray?: string[]
+	ignore?: string[]
 	sort?: boolean
 	comments?: boolean
 	emojis?: boolean
@@ -29,7 +29,7 @@ export const ftg = (
 		return jsonDir
 	} catch (error) {
 		if (error instanceof Error) {
-			console.error(error.message)
+			console.log(chalk.bgRed.bold(` ${error.message} `))
 		}
 
 		return

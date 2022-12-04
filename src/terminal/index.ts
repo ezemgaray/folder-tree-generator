@@ -23,6 +23,10 @@ program
 		'-e, --export [path]',
 		'Set the folder path to export "ftg_tree_[date].txt" or just -e or --export for the default export to the current path'
 	)
+	.option(
+		'-i, --ignore [regex]',
+		'Regex list to ignore folders and/or files (separated by commas) - eg: "example($|/.*),index.ts"'
+	)
 	.option('--emojis', 'Show emojis - folder: 📁 - File: 📄')
 	.parse(process.argv)
 
@@ -30,6 +34,13 @@ const options = program.opts()
 
 try {
 	fs.lstatSync(options.directory)
+
+	if (options.ignore) {
+		if (typeof options.ignore !== 'string') {
+			throw Error(chalk.bgRed.bold('✗ Missing regex list'))
+		}
+		options.ignore = options.ignore.split(',').map(item => item.trim())
+	}
 
 	const jsonDir = parseDirToJson(options.directory, options)
 
@@ -67,6 +78,6 @@ try {
 	}).notify({ isGlobal: true })
 } catch (error) {
 	if (error instanceof Error) {
-		console.log(chalk.bgRed.bold(error.message))
+		console.log(chalk.bgRed.bold(` ${error.message} `))
 	}
 }

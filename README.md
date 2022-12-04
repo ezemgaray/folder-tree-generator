@@ -74,6 +74,7 @@ Options:
   -s, --sort             Sort alphabetically and put folders first and then files.
   -c, --comments         Show "Empty folder" comment (--folder-only must be false)
   -e, --export [path]    Set the folder path to export "ftg_tree_[date].txt" or just -e or --export for the default export to the current path
+  -i, --ignore [regex]   Regex list to ignore folders and/or files (separated by commas) - eg: "example($|/.*),index.ts"
   --emojis               Show emojis - folder: 📁 - File: 📄
   -h, --help             display help for command
 ```
@@ -133,14 +134,15 @@ console.log(tree)
 
 ### Options
 
-| Terminal            | Code                | Type    | Default                                                        | Description                                                                                                            |
-| ------------------- | ------------------- | ------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| -d -directory [dir] | Path is a parameter | string  | **Terminal**: currentFolder - **Code**: path is required param | Folder Path                                                                                                            |
-| -f, --folders-only  | folderOnly          | boolean | false                                                          | generate tree only with folders (ignore files)                                                                         |
-| -s, --sort          | sort                | boolean | false                                                          | Sort alphabetically and put folders first and then files.                                                              |
-| -c, --comments      | comments            | boolean | false                                                          | Show "Empty folder" comment (--folder-only must be false)                                                              |
-| -e, --export [path] | [Not Available]     | string  | false                                                          | Set the folder path to export "ftg_tree\_[date].txt" or just -e or --export for the default export to the current path |
-| --emojis            | emojis              | boolean | false                                                          | Show emojis - folder: 📁 - File: 📄                                                                                    |
+| Terminal             | Code                | Type    | Default                                                        | Description                                                                                                             |
+| -------------------- | ------------------- | ------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| -d -directory [dir]  | Path is a parameter | string  | **Terminal**: currentFolder - **Code**: path is required param | Folder Path                                                                                                             |
+| -f, --folders-only   | folderOnly          | boolean | false                                                          | generate tree only with folders (ignore files)                                                                          |
+| -s, --sort           | sort                | boolean | false                                                          | Sort alphabetically and put folders first and then files.                                                               |
+| -c, --comments       | comments            | boolean | false                                                          | Show "Empty folder" comment (--folder-only must be false)                                                               |
+| -e, --export [path]  | [Not Available]     | string  | false                                                          | Set the folder path to export `"ftg_tree_[date].txt"` or just -e or --export for the default export to the current path |
+| -i, --ignore [regex] | ignore              | string  | false                                                          | Regex list to ignore folders and/or files (separated by commas) - eg: "example($&#124;/.\*),index.ts"                   |
+| --emojis             | emojis              | boolean | false                                                          | Show emojis - folder: 📁 - File: 📄                                                                                     |
 
 ## Ignore files/folders
 
@@ -151,6 +153,40 @@ By default ftg ignore the following files and folders
 - .git
 - node_modules
 - dist
+- coverage
+- .husky
+
+### Regex to ignore (-i, --ignore)
+
+**Example**
+
+Ignore all index.ts files and folders named "/example"
+
+```sh
+ftg -i 'example($|/.*),index.ts'
+```
+
+**Output**
+
+```sh
+├── folder-tree-generator
+│   ├── .editorconfig
+│   ├── .prettierrc.json
+│   ├── .versionrc
+│   ├── CHANGELOG.md
+│   ├── LICENSE
+│   ├── README.md
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── src
+│   │   ├── terminal
+│   │   ├── utils
+│   │   │   ├── drawTreeFromJsonDir.ts
+│   │   │   ├── ftg.ts
+│   │   │   ├── parseDirToJson.ts
+│   │   │   └── sortFolder.ts
+│   └── tsconfig.json
+```
 
 ## Comments
 
@@ -189,12 +225,14 @@ If files and folders are included and the `comments` option is also added, empty
 - Add command flags
   - --sort ✅
   - --folder-only ✅
-  - --ignore (regex)
+  - --ignore (regex[]) ✅
   - --export ✅
+  - --size (include file/folder size)
 - add ftg() options
   - sort ✅
   - folderOnly ✅
-  - ignore (regex)
+  - ignore (regex[]) ✅
+  - size (include file/folder size)
 - Add comment "# Empty folder" (if you are including files but the folder is empty literally) ✅
 - Interactive terminal
 - Show available version in terminal ✅

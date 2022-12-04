@@ -1,3 +1,4 @@
+import chalk from 'chalk'
 import * as fs from 'fs'
 import * as path from 'path'
 import { FtgOptions } from './ftg'
@@ -12,22 +13,8 @@ export type DirData = Record<string, any> | Array<string | Record<string, any>>
  */
 export const parseDirToJson = (
 	dirPath: string,
-	options?: FtgOptions
+	options: FtgOptions = {}
 ): DirData | string | undefined => {
-	const defaultOptions = {
-		folderOnly: false,
-		sort: false,
-	}
-	const mergedOptions = { ...defaultOptions, ...options }
-
-	const baseName = path.basename(dirPath)
-
-	if (!fs.lstatSync(dirPath).isDirectory()) {
-		return baseName
-	}
-
-	const dirArrayString = fs.readdirSync(dirPath)
-
 	const defaultIgnore = [
 		'.vscode',
 		'.DS_Store',
@@ -35,10 +22,34 @@ export const parseDirToJson = (
 		'node_modules',
 		'dist',
 		'coverage',
+		'.husky',
 	]
 
-	if (defaultIgnore.includes(baseName)) {
-		return
+	options.ignore = [
+		...defaultIgnore,
+		...((options.ignore && options.ignore) || []),
+	]
+
+	const baseName = path.basename(dirPath)
+
+	if (!fs.lstatSync(dirPath).isDirectory()) {
+		return baseName
+	}
+
+	let dirArrayString = fs.readdirSync(dirPath)
+
+	if (options.ignore?.length) {
+		// Ignore files and folders
+		const ignoreRegexpArray = options.ignore.map(item => {
+			try {
+				return new RegExp(item)
+			} catch (error) {
+				throw Error(` ✗ Incorrect Regexp: ${chalk.yellow(`'${item}'`)} `)
+			}
+		})
+		dirArrayString = dirArrayString.filter(value => {
+			return ignoreRegexpArray.every(regex => !regex.test(`${value}`))
+		})
 	}
 
 	const objDirectory = dirArrayString.length
@@ -47,10 +58,10 @@ export const parseDirToJson = (
 					//if curr is directory
 					acc[baseName] = [
 						...(acc[baseName] || []),
-						parseDirToJson(`${dirPath}/${curr}`, mergedOptions),
+						parseDirToJson(`${dirPath}/${curr}`, options),
 					].filter(Boolean)
 				} else {
-					if (!mergedOptions.folderOnly && !defaultIgnore.includes(curr)) {
+					if (!options.folderOnly) {
 						// If curr is a file and is not in "defaultIgnore"
 						acc[baseName] = acc[baseName] = Array<any>(
 							...(acc[baseName] || []),
@@ -65,10 +76,10 @@ export const parseDirToJson = (
 
 				return acc
 		  }, {})
-		: { [baseName]: [] } // if directory is empty
+		: { [baseName]: [] } // If the directory is empty
 
 	// Sort Directory
-	if (mergedOptions?.sort) {
+	if (options.sort) {
 		objDirectory[baseName] = sortFolder(objDirectory[baseName])
 	}
 
