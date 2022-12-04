@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.3](https://github.com/ezemgaray/folder-tree-generator/compare/v1.1.2...v1.1.3) (2022-12-04)
+
+
+### Chore
+
+* **fix:** tsconfig - add resolveJsonModule and change rootDir ([a5ae5e6](https://github.com/ezemgaray/folder-tree-generator/commit/a5ae5e6dda6a7c5dc936084d924392d83e580d01))
+* rename /terminal by /bin ([96bc738](https://github.com/ezemgaray/folder-tree-generator/commit/96bc738e40c76b8a1c6a08fe074cc165d006c68f))
+* replace require by import package version and name ([6de3db7](https://github.com/ezemgaray/folder-tree-generator/commit/6de3db72ce3a847d473f1a6e24ef539c49737dfb))
+* update package.json - use microbundle ([2d96cb2](https://github.com/ezemgaray/folder-tree-generator/commit/2d96cb27112282a300a87e96a098153dadcdf2c5))
+
 ### [1.1.2](https://github.com/ezemgaray/folder-tree-generator/compare/v1.1.1...v1.1.2) (2022-12-04)
 
 
