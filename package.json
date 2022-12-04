@@ -10,7 +10,6 @@
 		"require": "./dist/index.js",
 		"default": "./dist/index.modern.mjs"
 	},
-	"types": "dist/src/index.d.ts",
 	"files": [
 		"dist"
 	],
