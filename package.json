@@ -1,6 +1,6 @@
 {
 	"name": "folder-tree-generator",
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"description": "Generate a folder tree structure using command line or code.",
 	"source": "index.ts",
 	"main": "dist/index.js",
