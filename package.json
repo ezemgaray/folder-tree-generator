@@ -15,13 +15,13 @@
 		"dist"
 	],
 	"bin": {
-		"ftg": "dist/terminal/index.js"
+		"ftg": "dist/index.js"
 	},
 	"scripts": {
 		"dev": "npm run build && node dist ftg",
 		"example": "npm run build && node dist/example/index.js",
 		"build": "rimraf dist  && npx microbundle",
-		"prepublish": "rimraf dist && npx microbundle",
+		"prepublish": "npm run build",
 		"prepare": "husky install",
 		"release:patch": "npm run release -- --release-as patch",
 		"release:minor": "npm run release -- --release-as minor",

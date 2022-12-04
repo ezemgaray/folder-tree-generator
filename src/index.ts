@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-export * from './terminal'
+export * from './bin'
 export * from './utils'

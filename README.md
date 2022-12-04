@@ -35,7 +35,7 @@ Generate a folder tree structure using command line or code.
 │   │   │   ├── folder3
 │   │   │   │   └── folder4
 │   │   ├── index.ts
-│   │   ├── terminal
+│   │   ├── bin
 │   │   │   └── index.ts
 │   │   ├── utils
 │   │   │   ├── drawTreeFromJsonDir.ts
@@ -113,7 +113,7 @@ console.log(tree)
 │   ├── 📁 src
 │   │   ├── 📁 example
 │   │   │   └── 📄 index.ts
-│   │   ├── 📁 terminal
+│   │   ├── 📁 bin
 │   │   │   └── 📄 index.ts
 │   │   ├── 📁 utils
 │   │   │   ├── 📄 drawTreeFromJsonDir.ts
@@ -179,7 +179,7 @@ ftg -i 'example($|/.*),index.ts'
 │   ├── package-lock.json
 │   ├── package.json
 │   ├── src
-│   │   ├── terminal
+│   │   ├── bin
 │   │   ├── utils
 │   │   │   ├── drawTreeFromJsonDir.ts
 │   │   │   ├── ftg.ts
@@ -208,7 +208,7 @@ If files and folders are included and the `comments` option is also added, empty
 │   │   │   ├── folder3
 │   │   │   │   └── folder4 # Empty folder
 │   │   ├── index.ts
-│   │   ├── terminal
+│   │   ├── bin
 │   │   │   └── index.ts
 │   │   ├── utils
 │   │   │   ├── drawTreeFromJsonDir.ts
